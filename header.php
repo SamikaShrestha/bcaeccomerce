@@ -1,3 +1,8 @@
+<?php
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,5 +16,15 @@
     <a href="category.php">Categories</a>
     <a href="products.php">Products</a>
     <a href="contact.php">Contact</a>
-    <a href="login.php">Register</a>
-    <a href="register.php">Login</a>
+    <a href="register.php">Register</a>
+    <a href="login.php">Login</a>
+    <hr>
+    <?php if(isset($_SESSION['success'])) { ?>
+        <h1><?= $_SESSION['success']; ?></h1>
+        <?php unset ($_SESSION['success']); ?>
+    <?php } ?>   
+
+    <?php if(isset($_SESSION['error'])) { ?>
+        <h1><?= $_SESSION['error']; ?></h1>
+        <?php unset ($_SESSION['error']); ?>
+    <?php } ?>

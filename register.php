@@ -10,9 +10,11 @@ if(!empty($_POST)){
     $sql="INSERT INTO users(name,email,password,gender) VALUES('$name','$email','$password','$gender')";
     $result=mysqli_query($conn,$sql);
     if($result){
-        echo "account created";
+        $_SESSION['success']="Account Created";
+        header("Location:register.php");
     }else{
-        echo "account not created";
+        $_SESSION['error']="Account Not Created";
+        header("Location:register.php");
     }
 }
 ?>

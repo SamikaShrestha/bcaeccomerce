@@ -1,12 +1,24 @@
 <?php
 require_once "header.php";
+require_once "connection.php";
+
+if (!empty($_POST)) {
+    $email = $_POST['email'];
+    $password = md5($_POST['password']);
+
+    $sql = "SELECT * FROM users WHERE email='$email' AND password='$password'";
+
+    $result = mysqli_query($conn, $sql);
+
+    if (mysqli_num_rows($result) > 0) {
+        echo "Login Successful";
+    } else {
+        echo "Email or Password is incorrect";
+    }
+}
 ?>
 
 <h1>Welcome to BCA Ecommerce page</h1>
-
-<?php
-require_once "footer.php";
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -20,15 +32,18 @@ require_once "footer.php";
         <h1>Login Form</h1>
         <hr>
         <form action="" method="post">
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="username">
+                <label for="email">Email:</label>
+                <input type="text" id="email" name="email"><br><br>
 
                 <label for="password">Password:</label>
-                <input type="password" id="password" name="password">
+                <input type="password" id="password" name="password"><br><br>
 
                 <button type="submit">Login</button>
-                <button>Login</button>
         </form>
     </blockquote>
 </body>
 </html>
+
+<?php
+require_once "footer.php";
+?>
