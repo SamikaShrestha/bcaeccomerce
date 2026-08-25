@@ -16,8 +16,14 @@ session_start();
     <a href="category.php">Categories</a>
     <a href="products.php">Products</a>
     <a href="contact.php">Contact</a>
-    <a href="register.php">Register</a>
-    <a href="login.php">Login</a>
+    <?php if(isset($_SESSION['auth'])) { ?>
+        <h1>Welcome : <?php echo $_SESSION['auth']['name']; ?> </h1>
+        <a href="logout.php">Logout</a>
+        <?php } else {  ?>
+        <a href="register.php">Register</a>
+        <a href="login.php">Login</a>
+    <?php } ?>
+
     <hr>
     <?php if(isset($_SESSION['success'])) { ?>
         <h1><?= $_SESSION['success']; ?></h1>

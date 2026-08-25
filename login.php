@@ -11,9 +11,13 @@ if (!empty($_POST)) {
     $result = mysqli_query($conn, $sql);
 
     if (mysqli_num_rows($result) > 0) {
-        echo "Login Successful";
+        $user=mysqli_fetch_assoc($result);
+        $_SESSION['success']="Login Successful!";
+        $_SESSION['auth']=$user;
+        header("Location:index.php");
     } else {
-        echo "Email or Password is incorrect";
+        $_SESSION['error']="Invalid creditials";
+        header("Location:login.php");
     }
 }
 ?>
