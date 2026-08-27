@@ -19,6 +19,7 @@ session_start();
     <?php if(isset($_SESSION['auth'])) { ?>
         <h1>Welcome : <?php echo $_SESSION['auth']['name']; ?> </h1>
         <a href="logout.php">Logout</a>
+        <a href="add-category.php">Add Category</a>
         <?php } else {  ?>
         <a href="register.php">Register</a>
         <a href="login.php">Login</a>
