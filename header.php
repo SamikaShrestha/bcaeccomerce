@@ -17,9 +17,10 @@ session_start();
     <a href="products.php">Products</a>
     <a href="contact.php">Contact</a>
     <?php if(isset($_SESSION['auth'])) { ?>
-        <h1>Welcome : <?php echo $_SESSION['auth']['name']; ?> </h1>
+        <a>Welcome : <?php echo $_SESSION['auth']['name']; ?> </a>
         <a href="logout.php">Logout</a>
         <a href="add-category.php">Add Category</a>
+        <a href="add-product.php">Add Product</a>
         <?php } else {  ?>
         <a href="register.php">Register</a>
         <a href="login.php">Login</a>

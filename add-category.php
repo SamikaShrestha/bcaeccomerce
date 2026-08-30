@@ -20,12 +20,21 @@ if(!empty($_POST)){
     }
 }    
 
+$query="SELECT * FROM category";
+$data=mysqli_query($conn,$query);
+
 ?>
 
 <form action="" method="post">
     Category Name: <input type="text" name="name" id="" required><br><br>
     <button>Add category</button>
 </form>
+
+<ul>
+    <?php foreach($data as $category){ ?>
+        <li><?php echo $category['name']; ?></li>
+    <?php } ?>    
+</ul>
 
 <?php
 require_once "footer.php";
