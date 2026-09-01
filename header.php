@@ -9,6 +9,7 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <a href="index.php">Home</a>
@@ -26,7 +27,7 @@ session_start();
         <a href="login.php">Login</a>
     <?php } ?>
 
-    <hr>
+
     <?php if(isset($_SESSION['success'])) { ?>
         <h1><?= $_SESSION['success']; ?></h1>
         <?php unset ($_SESSION['success']); ?>
